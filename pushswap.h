@@ -23,5 +23,9 @@ char	*ft_strneww(size_t n);
 int checkminmax(char *str);
 int checkdouble(char *str);
 void	free_arrayy(char **array);
+void sa(t_list *stack_a);
+void ra(t_list **stack_a);
+t_list	*ft_lstlast(t_list *lst);
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif
