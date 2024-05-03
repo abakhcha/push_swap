@@ -30,21 +30,24 @@ int main(int ac, char **av)
         return (write(2, "Error\n", 6),1);
     }
     stack_a = stackinit(stack_a,str);
-    // printf("----------------\n");
-    // pb(&stack_a, &stack_b);
-    // pb(&stack_a, &stack_b);
-    // pb(&stack_a, &stack_b);
+    printf("----------------\n");
+    pb(&stack_a, &stack_b);
+    pb(&stack_a, &stack_b);
+    pb(&stack_a, &stack_b);
+    pb(&stack_a, &stack_b);
     // ss(stack_a, stack_b);
     // rrr(&stack_a, &stack_b);
-    // while(stack_b)
-    // {
-    //     printf("%d\n",stack_b->x);
-    //     stack_b = stack_b->next;
-    // }
-    // printf("----------------\n");
-    // while(stack_a)
-    // {
-    //     printf("%d\n",stack_a->x);
-    //     stack_a = stack_a->next;
-    // }
+    // rrb(&stack_b);
+    printf("-------a---------\n");
+    while(stack_a)
+    {
+        printf("%d\n",stack_a->x);
+        stack_a = stack_a->next;
+    }
+    printf("-------b---------\n");
+    while(stack_b)
+    {
+        printf("%d\n",stack_b->x);
+        stack_b = stack_b->next;
+    }
 }

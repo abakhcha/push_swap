@@ -1,0 +1,1 @@
+gcc atoi.c check_minmax.c checkdouble.c checknumbers.c instructions_a.c instructions_a_b.c instructions_b.c join.c lst.c pushswap.c split.c stackinit.c

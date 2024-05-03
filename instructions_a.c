@@ -15,7 +15,7 @@ void ra(t_list **stack_a)
 {
     t_list *tmp1;
 
-    if(stack_a == NULL || (*stack_a)->next == NULL)
+    if(*stack_a == NULL || (*stack_a)->next == NULL)
         return ;
     tmp1 = *stack_a;
     ft_lstlast(*stack_a)->next = tmp1;
@@ -26,7 +26,7 @@ void rra(t_list **stack_a)
 {
     t_list *last;
 
-    if(stack_a == NULL || (*stack_a)->next == NULL)
+    if(*stack_a == NULL || (*stack_a)->next == NULL)
         return ;
     last = ft_lstlast(*stack_a);
     ft_lstbfrlast(*stack_a)->next = NULL;
@@ -37,7 +37,7 @@ void pb(t_list **a, t_list **b)
 {
     t_list *tmp;
 
-    if(a == NULL)
+    if(*a == NULL)
         return ;
     tmp = *a;
     *a = tmp->next;
