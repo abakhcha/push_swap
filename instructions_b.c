@@ -9,6 +9,7 @@ void sb(t_list *stack_b)
     tmp = stack_b->x;
     stack_b->x = stack_b->next->x;
     stack_b->next->x = tmp;
+    write(1, "sb\n", 3);
 }
 
 void rb(t_list **stack_b)
@@ -21,6 +22,7 @@ void rb(t_list **stack_b)
     ft_lstlast(*stack_b)->next = tmp1;
     *stack_b = (*stack_b)->next;
     tmp1->next = NULL;
+    write(1, "rb\n", 3);
 }
 void rrb(t_list **stack_b)
 {
@@ -31,6 +33,7 @@ void rrb(t_list **stack_b)
     last = ft_lstlast(*stack_b);
     ft_lstbfrlast(*stack_b)->next = NULL;
     ft_lstadd_front(stack_b, last);
+    write(1, "rrb\n", 4);
 }
 
 void pa(t_list **b, t_list **a)
@@ -42,4 +45,5 @@ void pa(t_list **b, t_list **a)
     tmp = *b;
     *b = tmp->next;
     ft_lstadd_front(a,tmp);
+    write(1, "pa\n", 3);
 }

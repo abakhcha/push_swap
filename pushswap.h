@@ -42,5 +42,8 @@ void rrb(t_list **stack_b);
 void rr(t_list **a,t_list **b);
 void rrr(t_list **a,t_list **b);
 void ss(t_list *a,t_list *b);
+int check_order(t_list *stack);
+void sort_3(t_list **lst);
+int	ft_lstsize(t_list *lst);
 
 #endif

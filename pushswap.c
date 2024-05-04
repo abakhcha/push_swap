@@ -30,24 +30,14 @@ int main(int ac, char **av)
         return (write(2, "Error\n", 6),1);
     }
     stack_a = stackinit(stack_a,str);
-    printf("----------------\n");
-    pb(&stack_a, &stack_b);
-    pb(&stack_a, &stack_b);
-    pb(&stack_a, &stack_b);
-    pb(&stack_a, &stack_b);
-    // ss(stack_a, stack_b);
-    // rrr(&stack_a, &stack_b);
-    // rrb(&stack_b);
-    printf("-------a---------\n");
-    while(stack_a)
+    if(check_order(stack_a) == -1)
     {
-        printf("%d\n",stack_a->x);
-        stack_a = stack_a->next;
+        if(ft_lstsize(stack_a) == 2)
+            sa(stack_a);
+        if(ft_lstsize(stack_a) == 3)
+            sort_3(&stack_a);
+        // if(ft_lstsize(stack_a) > 3)
+        //     turk_algo(&stack_a);
     }
-    printf("-------b---------\n");
-    while(stack_b)
-    {
-        printf("%d\n",stack_b->x);
-        stack_b = stack_b->next;
-    }
+    free(stack_a);
 }
