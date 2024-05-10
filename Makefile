@@ -1,11 +1,11 @@
 NAME = push_swap
 #NAME_BONUS = checker
-CC = gcc #-fsanitize=address -g3
+CC = gcc -fsanitize=address -g3
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = atoi.c check_minmax.c checkdouble.c checknumbers.c \
+SRC = atoi.c check_minmax.c checkdouble.c checknumbers.c turk_algo.c\
       instructions_a.c instructions_a_b.c instructions_b.c join.c \
-      lst.c pushswap.c split.c stackinit.c check_order.c
+      lst.c pushswap.c split.c stackinit.c check_order.c 
 
 OBJS = $(SRC:.c=.o)
 

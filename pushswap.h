@@ -10,6 +10,10 @@
 typedef struct lst
 {
     int x;
+    int up;
+    int position;
+    int push_cost;
+    struct lst *target_node;
     struct lst *next;
 } t_list;
 
@@ -45,5 +49,14 @@ void ss(t_list *a,t_list *b);
 int check_order(t_list *stack);
 void sort_3(t_list **lst);
 int	ft_lstsize(t_list *lst);
+t_list *find_target(int y, t_list *a);
+int lst_max(t_list *lst);
+int find_bigsmaller(int y, t_list *a);
+t_list  *lst_min(t_list *lst);
+void fill_stacks(t_list *b, t_list *a);
+void fill_positiona(t_list *a);
+void push_except3(t_list **a, t_list **b);
+void    fill_swap_cost(t_list *b);
+void push_to_a(t_list **a, t_list **b);
 
 #endif

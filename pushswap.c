@@ -29,15 +29,32 @@ int main(int ac, char **av)
         free(str);
         return (write(2, "Error\n", 6),1);
     }
-    stack_a = stackinit(stack_a,str);
-    if(check_order(stack_a) == -1)
+
+    stack_a = stackinit(stack_a, str);
+    push_except3(&stack_a, &stack_b);
+    fill_stacks(stack_b, stack_a);
+    push_to_a(&stack_a, &stack_b);
+    //fill_swap_cost(stack_b);
+    printf("-------a---------\n");
+    while(stack_a)
     {
-        if(ft_lstsize(stack_a) == 2)
-            sa(stack_a);
-        if(ft_lstsize(stack_a) == 3)
-            sort_3(&stack_a);
-        // if(ft_lstsize(stack_a) > 3)
-        //     turk_algo(&stack_a);
+        printf("%d\n",stack_a->x);
+        stack_a = stack_a->next;
     }
+    printf("-------b---------\n");
+    while(stack_b)
+    {
+        printf("%d\n",stack_b->x);
+        stack_b = stack_b->next;
+    }
+    // if(check_order(stack_a) == -1)
+    // {
+    //     if(ft_lstsize(stack_a) == 2)
+    //         sa(stack_a);
+    //     if(ft_lstsize(stack_a) == 3)
+    //         sort_3(&stack_a);
+    //     // if(ft_lstsize(stack_a) > 3)
+    //     //     turk_algo(&stack_a);
+    // }
     free(stack_a);
 }

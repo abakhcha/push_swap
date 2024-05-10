@@ -10,11 +10,23 @@ int check_order(t_list *stack)
     }
     return (1);
 }
+t_list *lst_min(t_list *lst)
+{
+    t_list *min;
+
+    min = lst;
+    while(lst->next != NULL)
+    {
+        if(min->x > lst->next->x)
+            min = lst->next;
+        lst = lst->next;
+    }
+    return (min);
+}
 
 int lst_max(t_list *lst)
 {
     int max;
-
     max = lst->x;
     while(lst->next != NULL)
     {
