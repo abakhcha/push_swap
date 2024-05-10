@@ -67,7 +67,7 @@ void fill_stacks(t_list *b, t_list *a)
 
 void    fill_swap_cost(t_list *b)
 {
- 
+
     while(b)
     {
         (b)->push_cost = (b)->position + (b)->target_node->position;
@@ -93,44 +93,56 @@ void fill_positiona(t_list *a)
         i++;
     }
 }
-int smallest_pushcost(t_list *b)
+t_list *find_cheapest(t_list *b)
 {
-    int small;
+    t_list *tmp;
 
-    small = b->push_cost;
-    while(b && b->next)
+    tmp = NULL;
+    if (b)
     {
-        if (small > b->push_cost)
-            small = b->push_cost;
-        b = b->next;
+        tmp = b;
+        while(b->next)
+        {
+            if (tmp->push_cost > b->next->push_cost)
+                tmp = b->next;
+            b = b->next;
+        }
     }
-    return (small);
+    return (tmp);
 }
 
 void push_to_a(t_list **a, t_list **b)
 {
-    int smaller;
-    t_list *tmp;
-
-    tmp = *b;
-    smaller = smallest_pushcost(*b);
-    while (tmp)
-    {
-        if (tmp->push_cost == smaller)
-            break;
-        tmp = tmp->next;
-    }
-    while ((tmp->target_node->up = 1 && tmp->up == 1) && (tmp->position != 0 && tmp->target_node->position != 0))
+    t_list *tmp = find_cheapest(*b);
+    while(tmp->up == 1 && tmp->target_node->up == 1 && *b != tmp && *a != tmp->target_node)
         rr(a, b);
-    while ((tmp->target_node->up = 0 && tmp->up == 0) && (tmp->position != 0 && tmp->target_node->position != 0))
+    while(tmp->up == 0 && tmp->target_node->up == 0 && *b != tmp && *a != tmp->target_node)
         rrr(a, b);
-
-    while (tmp->position != 0 && tmp->up == 1)
+    while(tmp->up == 1 && *b != tmp)
         rb(b);
-    while (tmp->position != 0 && tmp->up == 0)
+    while(tmp->up == 0 && *b != tmp)
         rrb(b);
-    while (tmp->target_node->position != 0 && tmp->target_node->up == 1)
+
+    while(tmp->target_node->up == 0 && *a != tmp->target_node)
+        rra(a);
+    while(tmp->target_node->up == 1 && *a != tmp->target_node)
         ra(a);
-    while (tmp->target_node->position != 0 && tmp->target_node->up == 0)
+    pa(b,a);
+}
+
+void turk_algo(t_list **a, t_list **b)
+{
+    push_except3(a, b);
+    int size = ft_lstsize(*b);
+    while(size > 0)
+    {
+        fill_stacks(*b, *a);
+        push_to_a(a, b);
+        size = ft_lstsize(*b);
+    }
+    fill_stacks(*b, *a);
+    while(check_order(*a) == -1 && lst_min(*a)->up == 1)
+        ra(a);
+    while(check_order(*a) == -1 && lst_min(*a)->up == 0)
         rra(a);
 }

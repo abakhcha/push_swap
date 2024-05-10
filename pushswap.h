@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define INTMAX 2147483647 
-#define INTMIN -2147483648 
+#define INTMAX 2147483647
+#define INTMIN -2147483648
 typedef struct lst
 {
     int x;
@@ -58,5 +58,6 @@ void fill_positiona(t_list *a);
 void push_except3(t_list **a, t_list **b);
 void    fill_swap_cost(t_list *b);
 void push_to_a(t_list **a, t_list **b);
-
+t_list *find_cheapest(t_list *b);
+void turk_algo(t_list **a, t_list **b);
 #endif
