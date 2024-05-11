@@ -1,4 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   turk_algo.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/11 18:33:52 by iel-fagh          #+#    #+#             */
+/*   Updated: 2024/05/11 18:33:53 by iel-fagh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
+
+void push_except3(t_list **a, t_list **b)
+{
+    int size = ft_lstsize(*a);
+    while(size > 3)
+    {
+        pb(a, b);
+        size = ft_lstsize(*a);
+    }
+    if(check_order(*a) == -1)
+        sort_3(a);
+}
 
 t_list *find_target(int y, t_list *a)
 {
@@ -30,18 +54,6 @@ t_list *find_target(int y, t_list *a)
         target = lst_min(a2);
     return (target);
 }
-void push_except3(t_list **a, t_list **b)
-{
-    int size = ft_lstsize(*a);
-    while(size > 3)
-    {
-        pb(a, b);
-        size = ft_lstsize(*a);
-    }
-    if(check_order(*a) == -1)
-        sort_3(a);
-}
-
 void fill_stacks(t_list *b, t_list *a)
 {
     int size = ft_lstsize(b);
@@ -67,7 +79,6 @@ void fill_stacks(t_list *b, t_list *a)
 
 void    fill_swap_cost(t_list *b)
 {
-
     while(b)
     {
         (b)->push_cost = (b)->position + (b)->target_node->position;

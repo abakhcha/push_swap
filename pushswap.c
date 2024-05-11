@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pushswap.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/11 18:34:06 by iel-fagh          #+#    #+#             */
+/*   Updated: 2024/05/11 19:04:03 by iel-fagh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 int main(int ac, char **av)
@@ -39,17 +51,6 @@ int main(int ac, char **av)
         if(ft_lstsize(stack_a) > 3)
             turk_algo(&stack_a,&stack_b);
     }
-    printf("-------a---------\n");
-    while(stack_a)
-    {
-        printf("%d\n",stack_a->x);
-        stack_a = stack_a->next;
-    }
-    printf("-------b---------\n");
-    while(stack_b)
-    {
-        printf("%d\n",stack_b->x);
-        stack_b = stack_b->next;
-    }
     free(stack_a);
+    //system("leaks ./push_swap");
 }

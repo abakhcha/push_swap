@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_order.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/11 18:34:28 by iel-fagh          #+#    #+#             */
+/*   Updated: 2024/05/11 18:34:29 by iel-fagh         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pushswap.h"
 
 int check_order(t_list *stack)
@@ -44,7 +56,7 @@ void sort_3(t_list **lst)
     max = lst_max(*lst);
     if (max == ft_lstlast(*lst)->x)
         sa(*lst);
-    else 
+    else
     {
         if (max == (*lst)->x)
             ra(lst);
