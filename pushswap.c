@@ -6,7 +6,7 @@
 /*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 18:34:06 by iel-fagh          #+#    #+#             */
-/*   Updated: 2024/05/11 19:04:03 by iel-fagh         ###   ########.fr       */
+/*   Updated: 2024/05/12 00:21:36 by iel-fagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ int main(int ac, char **av)
             turk_algo(&stack_a,&stack_b);
     }
     free(stack_a);
-    //system("leaks ./push_swap");
+    system("leaks ./push_swap");
 }
