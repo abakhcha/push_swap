@@ -6,7 +6,7 @@
 /*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 18:34:17 by iel-fagh          #+#    #+#             */
-/*   Updated: 2024/05/11 18:34:18 by iel-fagh         ###   ########.fr       */
+/*   Updated: 2024/05/12 00:04:28 by iel-fagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void sa(t_list *stack_a)
 {
-    int tmp;
+    int tmp1;
 
-    if(stack_a == NULL || stack_a->next == NULL)
+    if (stack_a == NULL || stack_a->next == NULL)
         return ;
-    tmp = stack_a->x;
+    tmp1 = stack_a->x;
     stack_a->x = stack_a->next->x;
-    stack_a->next->x = tmp;
+    stack_a->next->x = tmp1;
     write(1, "sa\n", 3);
 }
 
@@ -28,7 +28,7 @@ void ra(t_list **stack_a)
 {
     t_list *tmp1;
 
-    if(*stack_a == NULL || (*stack_a)->next == NULL)
+    if (*stack_a == NULL || (*stack_a)->next == NULL)
         return ;
     tmp1 = *stack_a;
     ft_lstlast(*stack_a)->next = tmp1;
@@ -40,7 +40,7 @@ void rra(t_list **stack_a)
 {
     t_list *last;
 
-    if(*stack_a == NULL || (*stack_a)->next == NULL)
+    if (*stack_a == NULL || (*stack_a)->next == NULL)
         return ;
     last = ft_lstlast(*stack_a);
     ft_lstbfrlast(*stack_a)->next = NULL;
@@ -50,12 +50,12 @@ void rra(t_list **stack_a)
 
 void pb(t_list **a, t_list **b)
 {
-    t_list *tmp;
+    t_list *tmp1;
 
-    if(*a == NULL)
+    if (*a == NULL)
         return ;
-    tmp = *a;
-    *a = tmp->next;
-    ft_lstadd_front(b, tmp);
+    tmp1 = *a;
+    *a = tmp1->next;
+    ft_lstadd_front(b, tmp1);
     write(1, "pb\n", 3);
 }

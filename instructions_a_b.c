@@ -6,7 +6,7 @@
 /*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 18:34:20 by iel-fagh          #+#    #+#             */
-/*   Updated: 2024/05/11 18:34:21 by iel-fagh         ###   ########.fr       */
+/*   Updated: 2024/05/12 00:03:35 by iel-fagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,67 +14,54 @@
 
 void ss(t_list *a,t_list *b)
 {
-    int tmp;
-    int p;
+    int tmp1;
+    int tmp2;
 
-    if(a == NULL || a->next == NULL)
+    if (a == NULL || a->next == NULL || b == NULL || b->next == NULL)
         return ;
-    tmp = a->x;
+    tmp1 = a->x;
     a->x = a->next->x;
-    a->next->x = tmp;
+    a->next->x = tmp1;
 
-
-    if(b == NULL || b->next == NULL)
-        return ;
-    p = b->x;
+    tmp2 = b->x;
     b->x = b->next->x;
-    b->next->x = p;
+    b->next->x = tmp2;
     write(1, "ss\n", 3);
 }
 
 void rr(t_list **a,t_list **b)
 {
-    if(*b == NULL || *a == NULL)
+    t_list *tmp1;
+    t_list *tmp2;
+
+    if (*b == NULL || *a == NULL || (*b)->next == NULL || (*a)->next == NULL)
         return;
 
-    t_list *tmp1;
-    t_list *o;
-
-    if(*b == NULL || (*b)->next == NULL)
-        return ;
     tmp1 = *b;
     ft_lstlast(*b)->next = tmp1;
     *b = (*b)->next;
     tmp1->next = NULL;
 
-
-
-    if(*a == NULL || (*a)->next == NULL)
-        return ;
-    o = *a;
-    ft_lstlast(*a)->next = o;
+    tmp2 = *a;
+    ft_lstlast(*a)->next = tmp2;
     *a = (*a)->next;
-    o->next = NULL;
+    tmp2->next = NULL;
     write(1, "rr\n", 3);
 }
 void rrr(t_list **a,t_list **b)
 {
 
-    t_list *last;
-    t_list *l;
+    t_list *tmp1;
+    t_list *tmp2;
 
-    if(*a == NULL || (*a)->next == NULL)
+    if (*a == NULL || (*a)->next == NULL || *b == NULL || (*b)->next == NULL)
         return ;
-    last = ft_lstlast(*a);
+    tmp1 = ft_lstlast(*a);
     ft_lstbfrlast(*a)->next = NULL;
-    ft_lstadd_front(a, last);
+    ft_lstadd_front(a, tmp1);
 
-
-
-    if(*b == NULL || (*b)->next == NULL)
-        return ;
-    l = ft_lstlast(*b);
+    tmp2 = ft_lstlast(*b);
     ft_lstbfrlast(*b)->next = NULL;
-    ft_lstadd_front(b, l);
+    ft_lstadd_front(b, tmp2);
     write(1, "rrr\n", 4);
 }
