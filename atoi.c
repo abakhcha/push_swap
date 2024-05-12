@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   atoi.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
+/*   By: abakhcha <abakhcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/11 18:34:33 by iel-fagh          #+#    #+#             */
-/*   Updated: 2024/05/11 18:34:34 by iel-fagh         ###   ########.fr       */
+/*   Updated: 2024/05/12 14:11:57 by abakhcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long long	ft_atoi(char *str)
 {
 	long long	n;
-	int				sign;
-	int				i;
+	int			sign;
+	int			i;
 
 	i = 0;
 	n = 0;
@@ -34,6 +34,5 @@ long long	ft_atoi(char *str)
 		n = n * 10 + (str[i] - '0');
 		i++;
 	}
-
 	return (sign * n);
 }
