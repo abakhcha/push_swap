@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   atoi.c                                             :+:      :+:    :+:   */
+/*   strdup.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iel-fagh <iel-fagh@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 18:34:33 by iel-fagh          #+#    #+#             */
-/*   Updated: 2024/05/12 15:56:53 by iel-fagh         ###   ########.fr       */
+/*   Created: 2024/05/13 14:52:53 by iel-fagh          #+#    #+#             */
+/*   Updated: 2024/05/13 18:09:55 by iel-fagh         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-long long	ft_atoi(char *str)
+char	*ft_strdup(const char *s)
 {
-	long long	n;
-	int			sign;
-	int			i;
+	int		i;
+	int		j;
+	char	*p;
 
 	i = 0;
-	n = 0;
-	sign = 1;
-	while (str[i] && (str[i] == ' ' || str[i] == '\t'))
+	j = 0;
+	while (s[i])
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	p = (char *)malloc(i + 1);
+	if (!p)
+		return (NULL);
+	while (s[j])
 	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
+		p[j] = s[j];
+		j++;
 	}
-	while (str[i] && (str[i] >= '0' && str[i] <= '9'))
-	{
-		n = n * 10 + (str[i] - '0');
-		i++;
-	}
-	return (sign * n);
+	p[j] = '\0';
+	return (p);
 }

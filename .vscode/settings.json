@@ -2,6 +2,8 @@
   "files.associations": {
     "pushswap.h": "c",
     "__node_handle": "c",
-    "random": "c"
-  }
+    "random": "c",
+    "unistd.h": "c"
+  },
+  "C_Cpp.errorSquiggles": "disabled"
 }
