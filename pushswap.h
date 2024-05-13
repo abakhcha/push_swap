@@ -6,7 +6,7 @@
 /*   By: abakhcha <abakhcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/12 14:27:39 by abakhcha          #+#    #+#             */
-/*   Updated: 2024/05/12 14:34:23 by abakhcha         ###   ########.fr       */
+/*   Updated: 2024/05/13 13:43:42 by abakhcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct lst
 }				t_list;
 
 // utils functions ...
-char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin(char  *s1, char  *s2);
 char			**ft_split(char *s, char c);
 long long		ft_atoi(char *str);
 int				ft_strlen(const char *str);
@@ -53,6 +53,7 @@ t_list			*lst_min(t_list *lst);
 char			*ft_strneww(size_t n);
 int				ft_lstsize(t_list *lst);
 int				lst_max(t_list *lst);
+void	ft_lstclear(t_list **lst);
 
 // turk_algo functions ...
 t_list			*stackinit(t_list *stack_a, char *str);

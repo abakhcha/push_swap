@@ -1,5 +1,5 @@
 NAME = push_swap
-CC = gcc -fsanitize=address -g3
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
 SRC = atoi.c check_minmax.c checkdouble.c checknumbers.c turk_algo.c\

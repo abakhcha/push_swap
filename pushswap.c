@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abakhcha <abakhcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 18:34:06 by iel-fagh          #+#    #+#             */
-/*   Updated: 2024/05/12 14:34:36 by abakhcha         ###   ########.fr       */
+/*   Created: 2024/05/13 10:10:41 by abakhcha          #+#    #+#             */
+/*   Updated: 2024/05/13 14:06:53 by abakhcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "pushswap.h"
 
@@ -42,7 +43,7 @@ int	main(int ac, char **av)
 
 	stack_a = NULL;
 	stack_b = NULL;
-	str = " ";
+	str = NULL;
 	i = 1;
 	if (ac < 2)
 		return (1);
@@ -54,9 +55,11 @@ int	main(int ac, char **av)
 				free(str);
 			return (write(2, "Error\n", 6), 1);
 		}
-		str = ft_strjoin(str, ft_strjoin(av[i], " "));
+		str = ft_strjoin(str, av[i]);
+		str = ft_strjoin(str, " ");
 		i++;
 	}
 	splt_25line(str, &stack_a, &stack_b);
-	free(stack_a);
+	ft_lstclear(&stack_a);
+	system("leaks push_swap");
 }
